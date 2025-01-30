@@ -1,0 +1,25 @@
+.post-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffff;
+  border: 1px solid rgb(171, 168, 168);
+  gap: 20px;
+  padding: 20px;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-10px);
+    transition: 0.4s;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    margin: 10px 0;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #8d28b8;
+    margin-bottom: 10px;
+  }
+}

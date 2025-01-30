@@ -1,7 +1,14 @@
 import "./App.scss";
+import PostList from "./components/PostList";
+import Searcher from "./components/Searcher";
 
 function App() {
-  return <div>Hola Mundo!</div>;
+  return (
+    <>
+      <Searcher />
+      <PostList />
+    </>
+  );
 }
 
 export default App;
