@@ -1,8 +1,10 @@
 export interface PostCardProps {
-  post: {
-    id: number;
-    userId: number;
-    body: string;
-    title: string;
-  };
+  id: number;
+  userId: number;
+  body: string;
+  title: string;
+}
+
+export interface SearcherProps {
+  onSearch: (term: string) => void;
 }

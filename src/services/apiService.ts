@@ -1,4 +1,5 @@
 import axios from "axios";
+import { PostCardProps } from "../interfaces";
 
 const API_URL = "https://jsonplaceholder.typicode.com//posts";
 
@@ -9,7 +10,10 @@ const apiClient = axios.create({
   },
 });
 
-export const getPosts = async (page: number, limit: number) => {
+export const getPosts = async (
+  page: number,
+  limit: number
+): Promise<PostCardProps[]> => {
   try {
     const response = await apiClient.get(API_URL, {
       params: {
