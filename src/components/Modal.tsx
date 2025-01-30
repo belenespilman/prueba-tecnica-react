@@ -13,8 +13,6 @@ const Modal: React.FC<ModalProps> = ({ isOpen, postId, onClose }) => {
         const { postData, authorData } = await getPostDetails(postId);
         setPost(postData);
         setAuthor(authorData);
-        console.log(postData, authorData);
-        console.log(postId);
       };
 
       fetchPostDetails();

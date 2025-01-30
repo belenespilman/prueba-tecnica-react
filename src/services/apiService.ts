@@ -37,7 +37,6 @@ export const getPostDetails = async (postId: number) => {
       `${API_URL}/users/${postData.userId}`
     );
     const authorData = authorResponse.data;
-    console.log(postData, authorData);
 
     return { postData, authorData };
   } catch (error) {
