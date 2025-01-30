@@ -5,6 +5,7 @@ const Searcher: React.FC<SearcherProps> = ({ onSearch }) => {
   return (
     <div className="searcher">
       <input
+        id="1"
         type="text"
         placeholder="Find by title"
         onChange={(e) => onSearch(e.target.value)}

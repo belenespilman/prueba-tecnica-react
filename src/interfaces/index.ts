@@ -3,6 +3,12 @@ export interface PostCardProps {
   userId: number;
   body: string;
   title: string;
+  onClick: () => void;
+}
+
+export interface User {
+  id: number;
+  name: string;
 }
 
 export interface SearcherProps {
@@ -14,4 +20,10 @@ export interface PaginationProps {
   totalPages: number;
   onNext: () => void;
   onPrevious: () => void;
+}
+
+export interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  postId: number;
 }

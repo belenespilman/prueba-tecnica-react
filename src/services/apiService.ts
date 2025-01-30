@@ -1,7 +1,7 @@
 import axios from "axios";
 import { PostCardProps } from "../interfaces";
 
-const API_URL = "https://jsonplaceholder.typicode.com//posts";
+const API_URL = "https://jsonplaceholder.typicode.com";
 
 const apiClient = axios.create({
   baseURL: API_URL,
@@ -15,7 +15,7 @@ export const getPosts = async (
   limit: number
 ): Promise<PostCardProps[]> => {
   try {
-    const response = await apiClient.get(API_URL, {
+    const response = await apiClient.get(`${API_URL}/posts`, {
       params: {
         _page: page,
         _limit: limit,
@@ -25,5 +25,23 @@ export const getPosts = async (
   } catch (error) {
     console.error("Error fetching posts");
     return [];
+  }
+};
+
+export const getPostDetails = async (postId: number) => {
+  try {
+    const postResponse = await apiClient.get(`${API_URL}/posts/${postId}`);
+    const postData = postResponse.data;
+
+    const authorResponse = await apiClient.get(
+      `${API_URL}/users/${postData.userId}`
+    );
+    const authorData = authorResponse.data;
+    console.log(postData, authorData);
+
+    return { postData, authorData };
+  } catch (error) {
+    console.error("Error fetching post details", error);
+    return { postData: null, authorData: null };
   }
 };

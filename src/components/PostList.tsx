@@ -5,6 +5,7 @@ import { PostCardProps } from "../interfaces";
 import Searcher from "./Searcher";
 import "../styles/components/_postLists.scss";
 import Pagination from "./Pagination";
+import Modal from "./Modal";
 
 const PostList = () => {
   const [posts, setPosts] = useState<PostCardProps[]>([]);
@@ -12,6 +13,8 @@ const PostList = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPost, setTotalPosts] = useState(0);
+  const [selectedPostId, setSelectedPostId] = useState<number | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const postPerPage = 10;
 
   useEffect(() => {
@@ -25,6 +28,15 @@ const PostList = () => {
   }, [currentPage]);
 
   const totalPages = Math.ceil(totalPost / postPerPage);
+
+  const handlePostClick = (postId: number) => {
+    setSelectedPostId(postId);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   const hanldeNext = () => {
     if (currentPage < totalPages) {
@@ -57,9 +69,18 @@ const PostList = () => {
             body={post.body}
             title={post.title}
             userId={post.userId}
+            onClick={() => handlePostClick(post.id)}
           />
         ))}
       </div>
+
+      {isModalOpen && selectedPostId && (
+        <Modal
+          onClose={handleCloseModal}
+          isOpen={isModalOpen}
+          postId={selectedPostId}
+        />
+      )}
 
       <Pagination
         currentPage={currentPage}
