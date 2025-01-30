@@ -1,14 +1,15 @@
 import { SearcherProps } from "../interfaces";
+import "../styles/components/_searcher.scss";
 
 const Searcher: React.FC<SearcherProps> = ({ onSearch }) => {
   return (
-    <>
+    <div className="searcher">
       <input
         type="text"
         placeholder="Find by title"
         onChange={(e) => onSearch(e.target.value)}
       />
-    </>
+    </div>
   );
 };
 
