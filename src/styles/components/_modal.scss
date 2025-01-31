@@ -1,3 +1,4 @@
+@use "../abstracts/variables" as *;
 .modal {
   position: fixed;
   top: 0%;
@@ -25,15 +26,33 @@
     border-radius: 8px;
     max-width: 500px;
     width: 100%;
-  }
 
-  button {
-    background: #ff0000;
-    color: white;
-    border: none;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 10%;
-    cursor: pointer;
+    button {
+      background: #ed3535;
+      color: white;
+      border: none;
+      padding: 1px 7px 1px 7px;
+      margin-bottom: 10px;
+      border-radius: 10%;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.2);
+        transition: 0.2s ease;
+      }
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      color: black;
+      text-transform: capitalize;
+    }
+
+    p {
+      font-size: 1.3rem;
+      color: $text-color;
+      text-transform: capitalize;
+      margin-top: 1rem;
+    }
   }
 }
