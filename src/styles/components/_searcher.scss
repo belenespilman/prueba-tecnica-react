@@ -1,3 +1,4 @@
+@use "../abstracts/variables" as *;
 .searcher {
   display: flex;
   flex-direction: column;
@@ -6,9 +7,12 @@
   margin: 10px 0 10px 0;
 
   input {
+    background-color: #e2e2e2;
+    color: $text-color;
     padding: 8px 12px;
-    font-size: 1.5rem;
-    border: 2px solid #aaa;
+    font-weight: 100;
+    font-size: 1.3rem;
+    border: 1px solid #aaa;
     border-radius: 0.5rem;
     width: 100%;
     max-width: 480px;
@@ -16,12 +20,25 @@
 
     &:focus {
       outline: none;
-      border-color: #d07ba6;
+      border-color: $text-color;
     }
 
     &::placeholder {
       text-align: center;
       color: #aaa;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .searcher {
+    width: 80%; /* Hace que ocupe solo el 80% del ancho en pantallas pequeñas */
+    margin: 0 auto;
+    margin-top: 1rem; /* Centra el buscador en el contenedor */
+    input {
+      width: 100%; /* El input sigue ocupando todo el ancho del contenedor */
+      padding: 0.6rem;
+      font-size: 0.9rem;
     }
   }
 }

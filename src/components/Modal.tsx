@@ -29,6 +29,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, postId, onClose }) => {
             <p>
               <strong>Author:</strong> {author.name}
             </p>
+
             <p>{post.body}</p>
           </>
         ) : (

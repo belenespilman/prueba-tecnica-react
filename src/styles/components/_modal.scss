@@ -22,10 +22,11 @@
 
   div {
     background: white;
-    padding: 20px;
+    padding: 1.8rem;
     border-radius: 8px;
     max-width: 500px;
     width: 100%;
+    justify-content: space-between;
 
     button {
       background: #ed3535;
@@ -35,6 +36,7 @@
       margin-bottom: 10px;
       border-radius: 10%;
       cursor: pointer;
+      float: right;
 
       &:hover {
         transform: scale(1.2);
@@ -53,6 +55,54 @@
       color: $text-color;
       text-transform: capitalize;
       margin-top: 1rem;
+      text-align: justify;
     }
+  }
+}
+
+/* Media query para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+  .modal {
+    height: 100vh;
+    div {
+      margin: 6rem auto;
+      max-height: 60%;
+      padding: 1.5rem; // Menos padding en pantallas pequeñas
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+
+      // El modal ocupa el 95% del ancho de la pantalla
+
+      h2 {
+        font-size: 1.3rem; // Reducir el tamaño del título
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
+
+      button {
+        transform: scale(0.6);
+        font-size: 1rem; // Reducir el tamaño del botón
+        padding: 0.5rem 1rem; // Hacer el botón más pequeño
+      }
+    }
+  }
+}
+
+/* Media query para pantallas medianas (tabletas) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .modal div {
+    padding: 1.6rem; // Un poco menos de padding que en escritorio
+    width: 80%; // Hacer el modal más pequeño en pantallas medianas
+  }
+
+  .modal h2 {
+    font-size: 1.4rem; // Ajustar el tamaño del título
+  }
+
+  .modal p {
+    font-size: 1.2rem; // Ajustar el tamaño del texto
   }
 }
