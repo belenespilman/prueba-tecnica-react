@@ -19,6 +19,29 @@ const Modal: React.FC<ModalProps> = ({ isOpen, postId, onClose }) => {
     }
   }, [postId]);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const modalElement = document.querySelector(".modal");
+      const modalContentElement = document.querySelector(".modal > div");
+
+      if (
+        modalElement &&
+        modalContentElement &&
+        !modalContentElement.contains(event.target as Node)
+      ) {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen, onClose]);
+
   return (
     <div className={`modal ${isOpen ? "open" : ""}`}>
       <div>

@@ -38,7 +38,7 @@ const PostList = () => {
     setIsModalOpen(false);
   };
 
-  const hanldeNext = () => {
+  const handleNext = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
     }
@@ -85,7 +85,7 @@ const PostList = () => {
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
-        onNext={hanldeNext}
+        onNext={handleNext}
         onPrevious={handlePrevious}
       />
     </>

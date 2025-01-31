@@ -32,11 +32,11 @@
 
 @media (max-width: 600px) {
   .searcher {
-    width: 80%; /* Hace que ocupe solo el 80% del ancho en pantallas pequeñas */
+    width: 80%;
     margin: 0 auto;
-    margin-top: 1rem; /* Centra el buscador en el contenedor */
+    margin-top: 1rem;
     input {
-      width: 100%; /* El input sigue ocupando todo el ancho del contenedor */
+      width: 100%;
       padding: 0.6rem;
       font-size: 0.9rem;
     }
