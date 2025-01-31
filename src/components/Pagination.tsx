@@ -1,21 +1,21 @@
-import { PaginationProps } from "../interfaces";
 import "../styles/components/_pagination.scss";
+import { useAppContext } from "../context/AppContext";
 
-const Pagination: React.FC<PaginationProps> = ({
-  currentPage,
-  totalPages,
-  onNext,
-  onPrevious,
-}) => {
+const Pagination = () => {
+  const { currentPage, totalPosts, handleNext, handlePrevious } =
+    useAppContext();
+
+  const postPerPage = 10;
+  const totalPages = Math.ceil(totalPosts / postPerPage);
   return (
     <div className="pagination">
-      <button onClick={onPrevious} disabled={currentPage === 1}>
+      <button onClick={handlePrevious} disabled={currentPage === 1}>
         « Prev
       </button>
       <span>
         Page {currentPage} of {totalPages}
       </span>
-      <button onClick={onNext} disabled={currentPage === totalPages}>
+      <button onClick={handleNext} disabled={currentPage === totalPages}>
         Next »
       </button>
     </div>
