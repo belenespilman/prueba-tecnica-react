@@ -9,17 +9,15 @@ const Modal: React.FC<ModalProps> = ({ isOpen, postId, onClose }) => {
 
   useEffect(() => {
     if (postId) {
-      const fetchPostDetails = async () => {
+      const fetchPostDetails = async (): Promise<void> => {
         const { postData, authorData } = await getPostDetails(postId);
+
         setPost(postData);
         setAuthor(authorData);
       };
-
       fetchPostDetails();
     }
   }, [postId]);
-
-  if (!isOpen || !post || !author) return null;
 
   return (
     <div className={`modal ${isOpen ? "open" : ""}`}>

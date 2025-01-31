@@ -29,7 +29,7 @@ const PostList = () => {
 
   const totalPages = Math.ceil(totalPost / postPerPage);
 
-  const handlePostClick = (postId: number) => {
+  const handlePostClick = (postId: number | null) => {
     setSelectedPostId(postId);
     setIsModalOpen(true);
   };
@@ -74,7 +74,7 @@ const PostList = () => {
         ))}
       </div>
 
-      {isModalOpen && selectedPostId && (
+      {isModalOpen && selectedPostId !== null && (
         <Modal
           onClose={handleCloseModal}
           isOpen={isModalOpen}

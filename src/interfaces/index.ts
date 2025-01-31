@@ -3,7 +3,7 @@ export interface PostCardProps {
   userId: number;
   body: string;
   title: string;
-  onClick: () => void;
+  onClick: (postid: number | null) => void;
 }
 
 export interface User {
@@ -25,5 +25,5 @@ export interface PaginationProps {
 export interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  postId: number;
+  postId: number | null;
 }

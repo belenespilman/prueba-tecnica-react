@@ -31,6 +31,7 @@ export const getPosts = async (
 export const getPostDetails = async (postId: number) => {
   try {
     const postResponse = await apiClient.get(`${API_URL}/posts/${postId}`);
+
     const postData = postResponse.data;
 
     const authorResponse = await apiClient.get(
