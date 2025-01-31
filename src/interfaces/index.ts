@@ -1,5 +1,3 @@
-import React from "react";
-
 export interface PostCardProps {
   id: number;
   userId: number;
@@ -11,17 +9,6 @@ export interface PostCardProps {
 export interface User {
   id: number;
   name: string;
-}
-
-export interface SearcherProps {
-  onSearch: (term: string) => void;
-}
-
-export interface PaginationProps {
-  currentPage: number;
-  totalPages: number;
-  handleNext: () => void;
-  handlePrevious: () => void;
 }
 
 export interface ModalProps {

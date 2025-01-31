@@ -5,7 +5,6 @@ const PostCard: React.FC<PostCardProps> = ({
   title,
   body,
   id,
-  userId,
   onClick,
 }: PostCardProps) => {
   return (

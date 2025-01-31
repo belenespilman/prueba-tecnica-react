@@ -1,13 +1,13 @@
 import { useAppContext } from "../context/AppContext";
 import PostCard from "./PostCard";
-import Searcher from "./Searcher";
+
 import "../styles/components/_postLists.scss";
 import Modal from "./Modal";
 
 const PostList = () => {
   const {
     filteredPosts,
-    setSearchTerm,
+
     loading,
     handlePostClick,
     isModalOpen,
@@ -17,7 +17,6 @@ const PostList = () => {
 
   return (
     <>
-      <Searcher onSearch={setSearchTerm} />
       <div>
         {loading ? (
           <div className="loading-spinner">

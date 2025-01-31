@@ -1,7 +1,7 @@
 import "../styles/components/_pagination.scss";
 import { useAppContext } from "../context/AppContext";
 
-const Pagination = () => {
+const Pagination: React.FC = () => {
   const { currentPage, totalPosts, handleNext, handlePrevious } =
     useAppContext();
 

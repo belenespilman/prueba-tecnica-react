@@ -8,7 +8,7 @@ import {
 import { PostCardProps, AppContextType } from "../interfaces";
 import { getPosts } from "../services/apiService";
 
-const AppContext = createContext<AppContextType | undefined>(undefined);
+export const AppContext = createContext<AppContextType | undefined>(undefined);
 
 const AppProvider = ({ children }: { children: ReactNode }) => {
   const [posts, setPosts] = useState<PostCardProps[]>([]);
@@ -63,38 +63,33 @@ const AppProvider = ({ children }: { children: ReactNode }) => {
     setFilteredPosts(results);
   }, [searchTerm, posts]);
 
-  return (
-    <AppContext.Provider
-      value={{
-        posts,
-        setPosts,
-        filteredPosts,
-        setFilteredPosts,
-        totalPosts,
-        setTotalPosts,
-        currentPage,
-        setCurrentPage,
-        setSearchTerm,
-        searchTerm,
-        isModalOpen,
-        setIsModalOpen,
-        setSelectedPostId,
-        selectedPostId,
-        handleCloseModal,
-        handlePostClick,
-        handleNext,
-        handlePrevious,
-        loading,
-        postPerPage,
-        setLoading,
-      }}
-    >
-      {children}
-    </AppContext.Provider>
-  );
+  const value = {
+    posts,
+    setPosts,
+    filteredPosts,
+    setFilteredPosts,
+    totalPosts,
+    setTotalPosts,
+    currentPage,
+    setCurrentPage,
+    setSearchTerm,
+    searchTerm,
+    isModalOpen,
+    setIsModalOpen,
+    setSelectedPostId,
+    selectedPostId,
+    handleCloseModal,
+    handlePostClick,
+    handleNext,
+    handlePrevious,
+    loading,
+    postPerPage,
+    setLoading,
+  };
+  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
 
-export const useAppContext = () => {
+const useAppContext = () => {
   const context = useContext(AppContext);
   if (!context) {
     throw new Error('"useAppContext must be used within an AppProvider"');
@@ -102,4 +97,4 @@ export const useAppContext = () => {
   return context;
 };
 
-export { AppContext, AppProvider };
+export { useAppContext, AppProvider };

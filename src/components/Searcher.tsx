@@ -1,14 +1,19 @@
-import { SearcherProps } from "../interfaces";
 import "../styles/components/_searcher.scss";
+import { useAppContext } from "../context/AppContext";
 
-const Searcher: React.FC<SearcherProps> = ({ onSearch }) => {
+const Searcher: React.FC = () => {
+  const { setSearchTerm } = useAppContext();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
   return (
     <div className="searcher">
       <input
         id="1"
         type="text"
         placeholder="Find a title 🔎"
-        onChange={(e) => onSearch(e.target.value)}
+        onChange={handleChange}
       />
     </div>
   );
