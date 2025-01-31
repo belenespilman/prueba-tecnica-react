@@ -1,50 +1,45 @@
-# React + TypeScript + Vite
+# Prueba Técnica - React Pagination App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es un proyecto de React que consume la API pública de JSONPlaceholder y muestra una lista de publicaciones con funcionalidad de paginación, búsqueda en tiempo real y un modal con detalles completos del post.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Consumo de API**: Utiliza la API pública de [JSONPlaceholder](https://jsonplaceholder.typicode.com/posts) para obtener los datos de las publicaciones.
+- **Paginación**: Muestra un número limitado de publicaciones por página (10 por página), con botones para navegar entre páginas.
+- **Búsqueda en tiempo real**: Permite filtrar las publicaciones por título mientras escribes.
+- **Modal de detalles**: Al hacer clic en una publicación, se abre un modal con información completa del post, incluyendo el título, cuerpo y el nombre del autor.
 
-## Expanding the ESLint configuration
+## Tecnologías
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React.js**
+- **TypeScript**
+- **Vite.js** como bundler
+- **SCSS** para los estilos
+- **JSONPlaceholder API**
 
-- Configure the top-level `parserOptions` property like this:
+## Requisitos
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/) o [Yarn](https://yarnpkg.com/)
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Instalación
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+1. Clona este repositorio en tu máquina local:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+`git clone https://github.com/belenespilman/prueba-tecnica-react.git`
+
+2. Navega al directorio del proyecto:
+
+`cd prueba-tecnica-react`
+
+3. Instala las dependencias
+
+- **Si usas npm** `npm install`
+
+- **Si usas yarn** `yarn install`
+
+4. Para iniciar la aplicación en modo de desarrollo, usa el siguiente comando:
+
+- **Si usas npm** `npm run dev`
+
+- **Si usas yarn** `yarn dev`
